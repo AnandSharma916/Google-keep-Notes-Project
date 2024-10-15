@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import CreateNote from "./CreateNote";
+import Note from "./Note";
 
-function App() {
+const App = () => {
+  const [addItem, setAddItem] = useState([]);
+
+  // Function to add a note
+  const addNote = (note) => {
+    alert("I am clicked");
+    setAddItem((oldData) => {
+      return [...oldData, note];
+    });
+    console.log(note);
+  };
+
+  // Function to delete a note
+  const onDelete = (id) => {
+    setAddItem((oldData) =>
+      oldData.filter((currData, index) => {
+        return index!== id; // Fixed typo (!= to !==)
+      })
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      {/* Pass the addNote function as a prop to CreateNote component */}
+      <CreateNote passNote={addNote} />
+      {/* Map through the added items and render the Note component for each */}
+      {addItem.map((val, index) => {
+        return (
+          <Note
+            key={index}
+            id={index}
+            title={val.title}
+            content={val.content} // Corrected typo here
+            deleteItem={onDelete}
+          />
+        );
+      })}
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
