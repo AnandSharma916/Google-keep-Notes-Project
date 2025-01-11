@@ -1,150 +1,205 @@
-*{
-  box-sizing:border-box;
-  padding: 0;
+* {
   margin: 0;
-  
+  padding: 0;
+  box-sizing: border-box;
 }
-.header{
-  width: 100%;
-  line-height: 100px;
-  background-color: #f5ba13;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Utility Classes */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 50px;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(to right, #ff9800, #f57c00);
   color: white;
-  box-shadow: 5px 3px 15px -5px rgba(0,0,0,0.3);
-}
-.main_note{
-  width: 500px;
-  padding: 15px 10px 5px 10px;
-  margin: 20px auto;
-}
-.my_notes h1{
-  color: #34495e;
-}
-.my_notes p{
-  color: grey;
-}
-.form{
-  /* min-height: 50px;
-  color: #ecf0f1;
-  padding: 15px 10px 5px 10px;
-  box-shadow: 3px 5px 15px -5px rgba(0,0,0);
-  border-radius: 10px;
-  position: relative; */
-  min-height: 50px;
-  color: #ecf0f1;
-  padding: 15px 10px 5px 10px;
-  box-shadow: 3px 5px 15px -5px rgba(0,0,0,0.5);
-  border-radius: 10px;
-  position: relative;
-}
-input{
-  /* width: 100%;
-  line-height: 30px;
-background: transparent;
-border: none;
-outline: none;
-font-size: 1.5rem;
-margin: 10px 0;
-font-weight: bold; */
-  width: 100%;
-  line-height: 30px;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1.5rem;
-  margin: 10px 0;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.8rem;
   font-weight: bold;
-}
-textarea{
-  /* width: 100%;
-  line-height: 30px;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  margin: 1opx 0; */
-  width: 100%;
-  line-height: 30px;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  margin: 10px 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.MuiButton-root{
-width: 30px;
-height: 50px;
-position: absolute;
-bottom: -28px;
-left: 400px;
-cursor: pointer;
-background-color: #fff !important;
-border-radius: 50% !important;
+/* Main Container */
+.main_note {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  max-width: 600px;
+  transition: all 0.3s ease;
 }
-.MuiButton-root .plus-sign{
-  font-size: 45px !important;
-  font-weight: 900;
-  color: #f4b000;
-  cursor: pointer;
-  z-index: 222;
-  background: transparent;
+
+.main_note:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-.MuiButton-root:hover{
-  background-color: #f4b400;
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-.MuiButton-root:hover .plus-sign{
-  color: #fff;
-  background: transparent;
-}
-.note{
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px;
-  padding: 10px;
-  width: 240px;
-  margin: 16px;
- float: left;
-}
-.note h1{
-  font-size: 1.1em;
-  margin-bottom: 6px;
-}
-.note p{
-  font-size: 1.1em;
-  margin-bottom: 10px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-.note .btn{
-  position: relative;
-  float: right;
-  margin-right: 10px;
-  border: none;
-  width: 50px;
- color:#f4b400 ;
-  height: 50px;
-  background: transparent;
-  cursor: pointer;
+
+input,
+textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
   outline: none;
+  background: #f9f9f9;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #ff9800;
+  box-shadow: 0px 4px 10px rgba(255, 152, 0, 0.3);
+}
+
+textarea {
+  resize: none;
+}
+
+/* Add Button */
+.MuiButton-root {
+  width: 60px;
+  height: 60px;
+  background: #ff9800;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(255, 152, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-}
-.deleteIcon{
-  width: 0.7em;
-  height: 0.7em;
-}
-.note .btn:hover{
-  background-color: #f5ba13;
-}
-.note .btn:hover .deleteIcon{
+.MuiButton-root .plus-sign {
+  font-size: 2.5rem;
+  font-weight: bold;
   color: #fff;
 }
-footer{
-  width: 100%;
-  position: absolute;
+
+.MuiButton-root:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(255, 152, 0, 0.6);
+}
+
+/* Note Cards */
+.note {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.note:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.note h1 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #ff9800;
+}
+
+.note p {
+  font-size: 1rem;
+  color: #666;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.note .btn {
+  background: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  float: right;
+  box-shadow: 0px 4px 10px rgba(255, 152, 0, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.note .btn:hover {
+  background: #f57c00;
+  transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+  background: #f57c00;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    font-size: 1.4rem;
+  }
+
+  .main_note {
+    width: 90%;
+  }
+
+  .note {
+    width: 90%;
+  }
+
+  .MuiButton-root {
+    width: 50px;
+    height: 50px;
+  }
+
+  .MuiButton-root .plus-sign {
+    font-size: 2rem;
+  }
 }
