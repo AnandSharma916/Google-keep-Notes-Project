@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Google-keep-Notes-Project/static/css/main.417f3493.css",
+    "main.js": "/Google-keep-Notes-Project/static/js/main.d4d26736.js",
+    "index.html": "/Google-keep-Notes-Project/index.html",
+    "main.417f3493.css.map": "/Google-keep-Notes-Project/static/css/main.417f3493.css.map",
+    "main.d4d26736.js.map": "/Google-keep-Notes-Project/static/js/main.d4d26736.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.417f3493.css",
+    "static/js/main.d4d26736.js"
+  ]
+}
